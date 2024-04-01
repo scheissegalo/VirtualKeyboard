@@ -9,7 +9,7 @@
 
 //constants
 #define DISABLED_CONFIG_NUMBER  0 // layer 0 does nothing
-#define DISABLED_CONFIG_NAME "Capsicain disabled. \r\nNo processing, forward everything. \r\nOnly ESC-X and ESC-0..9 work."
+#define DISABLED_CONFIG_NAME "VirtualKeyboard disabled. \r\nNo processing, forward everything. \r\nOnly ESC-X and ESC-0..9 work."
 #define AHK_HOTKEY1 SC_F14  //this key triggers supporting AHK script
 #define AHK_HOTKEY2 SC_F15
 
