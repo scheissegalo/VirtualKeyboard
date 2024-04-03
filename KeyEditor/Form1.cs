@@ -1,5 +1,6 @@
 using System.Text;
 using System.IO;
+using System.Diagnostics;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace KeyEditor
@@ -13,10 +14,12 @@ namespace KeyEditor
 		// Path to the INI file
 		string configFilePath = "config.ini";
 		bool activated = false;
+		bool initialized = false;
 
 		public Form1()
 		{
 			InitializeComponent();
+			EnableRightButtons();
 			DisableRightButtons();
 
 			// Assign event handler to all buttons in the right panel
@@ -95,9 +98,20 @@ namespace KeyEditor
 		{
 			foreach (Control control in rightPanel.Controls)
 			{
-				if (control is Button)
+				if (control is Button button && button.Tag != null)
 				{
 					control.Enabled = true;
+					if (!initialized)
+					{
+						if (int.TryParse(button.Tag.ToString(), out int tagID))
+						{
+							HellKeyMapping mapps = hellKeyMaps.FirstOrDefault(m => m.ID == tagID);
+							if (mapps != null)
+							{
+								toolTip1.SetToolTip(button, mapps.Name);
+							}
+						}
+					}
 				}
 			}
 			btnDeleteHK.Enabled = true;
@@ -149,7 +163,7 @@ namespace KeyEditor
 				}
 				else
 				{
-					MessageBox.Show("config.ini file not found.");
+					MessageBox.Show("config.ini file not found. Please save bevore starting the Keyboard");
 				}
 			}
 			catch (Exception ex)
@@ -362,7 +376,7 @@ namespace KeyEditor
 					//Split id and numpad number
 					string[] dataArray = data.Split(',');
 					HellKeyMapping saveString = GetHellKeyMappingById(dataArray[0]);
-					combinedString += saveString.KeyCombinationString + Environment.NewLine;
+					combinedString += "COMBO  NP" + dataArray[1] + " [] > sequence(" + saveString.KeyCombinationString + ")" + Environment.NewLine;
 					saveIDs += saveString.ID.ToString() + "," + dataArray[1] + "|";
 				}
 				combinedString += $"\n\n#SavedIDs {saveIDs}";
@@ -790,8 +804,10 @@ namespace KeyEditor
 				btnNum8.Enabled = true;
 				btnNum9.Enabled = true;
 
+				stopVirtualKeyboard();
+
 				// Todo start VirtualKeyboard
-				button9.Text = "Activate";
+				button9.Text = "Activate Virtual Keyboard";
 				activated = false;
 			}
 			else
@@ -810,12 +826,38 @@ namespace KeyEditor
 				btnNum9.Enabled = false;
 
 				DisableRightButtons();
+				startVirtualKeyboard();
 
-				// Todo start VirtualKeyboard
-				button9.Text = "Deactivate";
+				button9.Text = "Dectivate Virtual Keyboard";
 				activated = true;
 			}
 
+		}
+
+		private void startVirtualKeyboard()
+		{
+			// Start virtualkeyboard.exe minimized
+			ProcessStartInfo startInfo = new ProcessStartInfo("virtualkeyboard.exe");
+			startInfo.WindowStyle = ProcessWindowStyle.Minimized;
+			Process.Start(startInfo);
+		}
+
+		private void stopVirtualKeyboard()
+		{
+			// Get all processes named virtualkeyboard.exe
+			Process[] processes = Process.GetProcessesByName("virtualkeyboard");
+
+			// Close each found process
+			foreach (Process process in processes)
+			{
+				process.CloseMainWindow(); // Attempts to close the main window
+				process.Kill(); // Forcefully terminates the process if closing fails
+			}
+		}
+
+		private void Form1_Closing(object sender, FormClosingEventArgs e)
+		{
+			stopVirtualKeyboard();
 		}
 	}
 
@@ -824,10 +866,12 @@ namespace KeyEditor
 		public int ID { get; set; }
 		public string Name { get; set; }
 		public string KeyCombinationString { get; set; }
+		public int AssignedNumKey { get; set; }
 		//public Image Image { get; set; }
 		public HellKeyMapping()
 		{
 
 		}
 	}
+
 }

@@ -28,6 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			btnNum7 = new Button();
 			label1 = new Label();
 			btnNum8 = new Button();
@@ -103,12 +105,13 @@
 			button1 = new Button();
 			lblHelpText = new Label();
 			button9 = new Button();
+			toolTip1 = new ToolTip(components);
 			rightPanel.SuspendLayout();
 			SuspendLayout();
 			// 
 			// btnNum7
 			// 
-			btnNum7.Location = new Point(31, 89);
+			btnNum7.Location = new Point(37, 55);
 			btnNum7.Name = "btnNum7";
 			btnNum7.Size = new Size(50, 50);
 			btnNum7.TabIndex = 0;
@@ -119,7 +122,7 @@
 			// label1
 			// 
 			label1.AutoSize = true;
-			label1.Location = new Point(61, 71);
+			label1.Location = new Point(67, 37);
 			label1.Name = "label1";
 			label1.Size = new Size(108, 15);
 			label1.TabIndex = 1;
@@ -127,7 +130,7 @@
 			// 
 			// btnNum8
 			// 
-			btnNum8.Location = new Point(87, 89);
+			btnNum8.Location = new Point(93, 55);
 			btnNum8.Name = "btnNum8";
 			btnNum8.Size = new Size(50, 50);
 			btnNum8.TabIndex = 2;
@@ -137,7 +140,7 @@
 			// 
 			// btnNum9
 			// 
-			btnNum9.Location = new Point(143, 89);
+			btnNum9.Location = new Point(149, 55);
 			btnNum9.Name = "btnNum9";
 			btnNum9.Size = new Size(50, 50);
 			btnNum9.TabIndex = 3;
@@ -147,7 +150,7 @@
 			// 
 			// btnNum4
 			// 
-			btnNum4.Location = new Point(31, 145);
+			btnNum4.Location = new Point(37, 111);
 			btnNum4.Name = "btnNum4";
 			btnNum4.Size = new Size(50, 50);
 			btnNum4.TabIndex = 4;
@@ -157,7 +160,7 @@
 			// 
 			// btnNum5
 			// 
-			btnNum5.Location = new Point(87, 145);
+			btnNum5.Location = new Point(93, 111);
 			btnNum5.Name = "btnNum5";
 			btnNum5.Size = new Size(50, 50);
 			btnNum5.TabIndex = 5;
@@ -167,7 +170,7 @@
 			// 
 			// btnNum6
 			// 
-			btnNum6.Location = new Point(143, 145);
+			btnNum6.Location = new Point(149, 111);
 			btnNum6.Name = "btnNum6";
 			btnNum6.Size = new Size(50, 50);
 			btnNum6.TabIndex = 6;
@@ -177,7 +180,7 @@
 			// 
 			// btnNum1
 			// 
-			btnNum1.Location = new Point(31, 201);
+			btnNum1.Location = new Point(37, 167);
 			btnNum1.Name = "btnNum1";
 			btnNum1.Size = new Size(50, 50);
 			btnNum1.TabIndex = 7;
@@ -187,7 +190,7 @@
 			// 
 			// btnNum2
 			// 
-			btnNum2.Location = new Point(87, 201);
+			btnNum2.Location = new Point(93, 167);
 			btnNum2.Name = "btnNum2";
 			btnNum2.Size = new Size(50, 50);
 			btnNum2.TabIndex = 8;
@@ -197,7 +200,7 @@
 			// 
 			// btnNum3
 			// 
-			btnNum3.Location = new Point(143, 201);
+			btnNum3.Location = new Point(149, 167);
 			btnNum3.Name = "btnNum3";
 			btnNum3.Size = new Size(50, 50);
 			btnNum3.TabIndex = 9;
@@ -207,7 +210,7 @@
 			// 
 			// btnNum0
 			// 
-			btnNum0.Location = new Point(31, 257);
+			btnNum0.Location = new Point(37, 223);
 			btnNum0.Name = "btnNum0";
 			btnNum0.Size = new Size(106, 50);
 			btnNum0.TabIndex = 10;
@@ -819,7 +822,7 @@
 			// 
 			label2.AutoSize = true;
 			label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			label2.Location = new Point(15, 9);
+			label2.Location = new Point(23, 6);
 			label2.Name = "label2";
 			label2.Size = new Size(195, 25);
 			label2.TabIndex = 61;
@@ -829,7 +832,7 @@
 			// 
 			btnSave.BackColor = Color.FromArgb(192, 255, 192);
 			btnSave.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			btnSave.Location = new Point(12, 396);
+			btnSave.Location = new Point(15, 332);
 			btnSave.Name = "btnSave";
 			btnSave.Size = new Size(92, 30);
 			btnSave.TabIndex = 62;
@@ -1001,7 +1004,7 @@
 			// 
 			button1.BackColor = Color.FromArgb(255, 128, 128);
 			button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			button1.Location = new Point(118, 396);
+			button1.Location = new Point(121, 332);
 			button1.Name = "button1";
 			button1.Size = new Size(92, 30);
 			button1.TabIndex = 64;
@@ -1012,7 +1015,7 @@
 			// lblHelpText
 			// 
 			lblHelpText.AutoSize = true;
-			lblHelpText.Location = new Point(13, 313);
+			lblHelpText.Location = new Point(19, 279);
 			lblHelpText.Name = "lblHelpText";
 			lblHelpText.Size = new Size(0, 15);
 			lblHelpText.TabIndex = 65;
@@ -1021,11 +1024,11 @@
 			// 
 			button9.BackColor = Color.FromArgb(255, 255, 128);
 			button9.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			button9.Location = new Point(12, 360);
+			button9.Location = new Point(15, 368);
 			button9.Name = "button9";
-			button9.Size = new Size(92, 30);
+			button9.Size = new Size(198, 53);
 			button9.TabIndex = 66;
-			button9.Text = "Activate";
+			button9.Text = "Activate Virtual Keyboard";
 			button9.UseVisualStyleBackColor = false;
 			button9.Click += button9_Click;
 			// 
@@ -1053,9 +1056,11 @@
 			Controls.Add(label1);
 			Controls.Add(btnNum7);
 			FormBorderStyle = FormBorderStyle.FixedSingle;
+			Icon = (Icon)resources.GetObject("$this.Icon");
 			MaximizeBox = false;
 			Name = "Form1";
 			Text = "Helldivers2 Key Editor";
+			FormClosing += Form1_Closing;
 			Load += Form1_Load;
 			rightPanel.ResumeLayout(false);
 			ResumeLayout(false);
@@ -1139,5 +1144,6 @@
 		internal Button button4;
 		internal Button button3;
 		private Button button9;
+		private ToolTip toolTip1;
 	}
 }

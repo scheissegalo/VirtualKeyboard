@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "KeyEditor/1.11.4": {
+        "runtime": {
+          "KeyEditor.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "KeyEditor/1.11.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
